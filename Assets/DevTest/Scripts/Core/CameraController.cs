@@ -5,18 +5,19 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {    
     public GameObject rootObject;
-    public GameObject groundPlane;
+    public Transform currentView;
 
     [SerializeField] float transitionSpeed = 0.05f;
 
     private Vector3 homeView;
-    public Transform currentView;
-
+    private PlaneDeactivator planeDeactivator;
     private string components = "SkyCarComponents";
+    
 
     private void Awake()
     {
         homeView = this.gameObject.transform.position;
+        planeDeactivator = GetComponent<PlaneDeactivator>();
     }
     void LateUpdate()
     {
@@ -29,14 +30,14 @@ public class CameraController : MonoBehaviour
         {
             if (currentView.parent.name == components)
             {
-                groundPlane.SetActive(false);
+                planeDeactivator.DeactivatePlane();
             }
             ZoomIn();
         }
         //If there is no current view, return to home position
         else if(currentView == null && transform.position != homeView)
         {
-            groundPlane.SetActive(true);
+            planeDeactivator.ActivatePlane();
             ZoomOut();
         }
     }

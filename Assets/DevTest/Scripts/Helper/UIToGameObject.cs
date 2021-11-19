@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameObjectFromName : MonoBehaviour
+public class UIToGameObject : MonoBehaviour
 {
     private Transform selectedObject;
 
@@ -30,7 +30,7 @@ public class GameObjectFromName : MonoBehaviour
         return selectedObject;
     }
 
-    //Get button by name
+    //Get GameObject by button name
     private void FindUIObjectByName(string name)
     {
         selectedObject = GameObject.Find("SkyCar/" + name).transform;

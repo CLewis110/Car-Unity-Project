@@ -3611,13 +3611,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc83f3b459f4ef4b9e672b5502317a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camController: {fileID: 1995476037}
+  _highlightedObject: {fileID: 0}
+  _selectedObject: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 64
-  _highlightedObject: {fileID: 0}
-  _selectedObject: {fileID: 0}
-  _camController: {fileID: 1995476037}
-  _labeler: {fileID: 0}
 --- !u!4 &1794994123
 Transform:
   m_ObjectHideFlags: 0
@@ -4532,6 +4531,7 @@ GameObject:
   - component: {fileID: 1995476035}
   - component: {fileID: 1995476034}
   - component: {fileID: 1995476037}
+  - component: {fileID: 1995476038}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -4620,6 +4620,18 @@ MonoBehaviour:
   groundPlane: {fileID: 115149880}
   transitionSpeed: 0.05
   currentView: {fileID: 0}
+--- !u!114 &1995476038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995476033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c7f28023b477046b98a35e279eae17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2001601113
 GameObject:
   m_ObjectHideFlags: 0
