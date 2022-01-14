@@ -31,8 +31,10 @@ public class UIToGameObject : MonoBehaviour
     }
 
     //Get GameObject by button name
+    //TODO: Get Gameobject by child array number
     private void FindUIObjectByName(string name)
     {
         selectedObject = GameObject.Find("SkyCar/" + name).transform;
+
     }
 }

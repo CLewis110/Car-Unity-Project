@@ -14,6 +14,7 @@ public class SelectionManager : MonoBehaviour
     private MouseScreenRayProvider _rayProvider;
     private UIToGameObject _UIGameObject;
     private LayerChecker _layerChecker;
+    private LabelActivator _labelActivator;
     private Labeler _labeler;
 
     private void Awake()
@@ -22,6 +23,7 @@ public class SelectionManager : MonoBehaviour
         _rayProvider = GetComponent<MouseScreenRayProvider>();
         _UIGameObject = GetComponent<UIToGameObject>();
         _layerChecker = GetComponent<LayerChecker>();
+        _labelActivator = GetComponent<LabelActivator>();
         _labeler = GetComponent<Labeler>();
     }
     private void Update()
@@ -88,12 +90,14 @@ public class SelectionManager : MonoBehaviour
         _selectedObject = selection;
         _selectionResponse.OnSelect(_selectedObject);
         _camController.SetCurrentView(_selectedObject);
+        _labelActivator.ActivateLabels(_selectedObject);
         _labeler.SetText(_selectedObject.name);
     }
 
     private void ClearSelection()
     {
         _selectionResponse.OnDeselect(_selectedObject);
+        _labelActivator.DeactivateLabels(_selectedObject);
         _selectedObject = null;
         _camController.ClearCurrentView();
         _labeler.ClearText();
